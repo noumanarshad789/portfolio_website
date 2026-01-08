@@ -1,9 +1,55 @@
-.navbar{
+/* .navbar{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 20px 170px;
+    transition: all 0.3s ease-in-out;
+} */
+ .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 170px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 340px);
+    z-index: 999;
+    transition: all 0.3s ease;
 }
+
+/* Text visible on dark hero */
+.nav-menu li {
+    color: #ffffff;
+}
+
+.scroll-on {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    margin: 0;
+    padding: 15px 170px;
+
+    background: linear-gradient(
+      264deg,
+      #b415ff -5.09%,
+      #df8908 106.28%
+      
+    );
+
+    box-shadow: 0 5px 20px rgba(247, 238, 238, 0.3);
+    z-index: 1000;
+}
+
+.scroll-on .nav-menu li {
+    color: #000000;
+}
+.scroll-on .nav-connect {
+    color: #ffffff;
+    border: 2px solid white;
+}
+
 .nav-menu{
     display: flex;
     align-items: center;
@@ -22,4 +68,30 @@
 
 .nav-connect:hover{
     transform: scale(1.05);
+}
+
+.nav-menu li{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.nav-menu li img{
+    display: flex;
+    margin: auto;
+}
+/* Default (before scroll) */
+.nav-menu li img {
+    transition: filter 0.3s ease;
+}
+
+/* On scroll */
+.scroll-on .nav-menu li img {
+    filter: brightness(0) invert(1);
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }

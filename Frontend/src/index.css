@@ -11,3 +11,36 @@ body {
   color: white;
   font-family: "Outfit", sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 15px; /* 10px */
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    264deg,
+    #df8908 -5.09%,
+    #b415ff 106.28%
+  );
+  border-radius: 10px;
+}
+
+/* Optional: hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    264deg,
+    #b415ff -5.09%,
+    #df8908 106.28%
+  );
+}
