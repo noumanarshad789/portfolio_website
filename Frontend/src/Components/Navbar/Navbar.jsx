@@ -1,11 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Navbar.css'
 import logo from "../../assets/logo.svg"
 import nav_underline from "../../assets/nav_underline.svg"
+import menu_open from "../../assets/menu_open.svg"
+import menu_close from "../../assets/menu_close.svg"
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [menu,setMenu]=useState("home")
+  const menuRef= useRef();
+
+  const openMenu=()=>{
+    menuRef.current.style.right="0";
+  }
+
+  const closeMenu=()=>{
+    menuRef.current.style.right="-350px";
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,9 +37,12 @@ const Navbar = () => {
 
   return (
     <div className={`navbar ${scrolled ? "scroll-on" : ""}`}>
-      <img src={logo} alt="Logo" />
+      <img src={logo} alt="Logo" className='nav-logo' />
+      <img src={menu_open} onClick={openMenu} alt="menu-open" className='nav-mob-open'/>
 
-      <ul className='nav-menu'>
+      <ul ref={menuRef} className='nav-menu'>
+      <img src={menu_close} onClick={closeMenu} alt="menu-close" className='nav-mob-close' />
+
         <li onClick={()=>{setMenu("home")}}><a href='#home'><p>Home</p></a>{menu==="home"?<img src={nav_underline} alt="Underline" />:<></>}</li>
         <li onClick={()=>{setMenu("about")}}><a href='#about'><p>About me</p></a>{menu==="about"?<img src={nav_underline} alt="Underline" />:<></>}</li>
         <li onClick={()=>{setMenu("services")}}><a href='#services'><p>Services</p></a>{menu==="services"?<img src={nav_underline} alt="Underline" />:<></>}</li>
